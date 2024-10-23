@@ -1,5 +1,5 @@
 import { UserSelectMenuInteraction } from 'discord.js';
-import SelectMenu from '../templates/selectMenu.js';
+import SelectMenu from '../templates/selectMenu.ts';
 
 export default new SelectMenu<UserSelectMenuInteraction>({
   customId: 'userSelect',

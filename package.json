@@ -14,16 +14,13 @@
   },
   "main": "dist/index.js",
   "scripts": {
+    "seed": "tsx prisma/seed.ts",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write src/**/*.ts",
-    "compile": "tsc && npm run copy",
-    "clean": "rimraf dist/",
-    "copy": "npx copyfiles .env src/**/*.json src/**/*.js dist/",
-    "build": "npm run clean && npm run compile",
-    "start": "npm run build &&node dist/index.js",
-    "dev": "tsc-watch --onSuccess \"npm run start\"",
-    "prod": "npm run build && npm run start",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "npx tsc",
     "prepare": "husky"
   },
   "dependencies": {
@@ -32,19 +29,26 @@
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "husky": "9.1.6",
-    "@prisma/client": "^5.19.1",
+    "@eslint/config-array": "^0.17.0",
+    "@eslint/object-schema": "^2.0.0",
+    "@prisma/client": "^5.21.1",
+    "@sentry/node": "latest",
     "@tsconfig/node20": "^20.1.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
-    "eslint": "^8.47.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "glob": "^10.0.0",
+    "husky": "9.1.6",
     "prettier": "^3.0.2",
-    "prisma": "^5.19.1",
-    "prisma-cli": "^1.0.9",
-    "rimraf": "^5.0.1",
+    "prisma": "^5.21.1",
+    "prisma-cli": "^0.0.0",
+    "ts-node": "^10.9.2",
     "tsc-watch": "^6.0.4",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.1",
     "typescript": "^5.1.6"
   }
 }

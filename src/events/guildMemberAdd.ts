@@ -1,6 +1,6 @@
 import { Events, GuildMember } from 'discord.js'
 import Event from '../templates/event.js'
-import { createUser, findUserByDiscordId } from '../services/userService.js'
+import { createUser, findUserByDiscordId } from '../services/userService.ts'
 
 export default new Event({
     name: Events.GuildMemberAdd,

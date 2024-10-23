@@ -2,10 +2,10 @@ import {
     ButtonInteraction,
     UserSelectMenuBuilder
 } from 'discord.js'
-import Button from '../templates/button.js'
-import { createSelectMenu } from '../utils/selectMenuBuilder.js'
-import { createActionRows } from '../utils/actionRowBuilder.js'
-import { createEmbed } from '../utils/embedBuilder.js'
+import Button from '../templates/button.ts'
+import { createSelectMenu } from '../utils/selectMenuBuilder.ts'
+import { createActionRows } from '../utils/actionRowBuilder.ts'
+import { createEmbed } from '../utils/embedBuilder.ts'
 
 export default new Button({
     customId: 'selectOption',

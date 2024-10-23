@@ -1,6 +1,6 @@
 import { Events, Guild } from 'discord.js'
-import Event from '../templates/event.js'
-import { deployCommands } from '../deploy-commands.js'
+import Event from '../templates/event.ts'
+import { deployCommands } from '../deploy-commands.ts'
 
 export default new Event({
     name: Events.GuildCreate,

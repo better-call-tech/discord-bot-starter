@@ -1,5 +1,5 @@
 import { Interaction } from 'discord.js';
-import { SelectMenuInteractionType } from '../templates/selectMenu.js';
+import { SelectMenuInteractionType } from '../templates/selectMenu.ts';
 
 
 export function isSelectMenuInteraction(

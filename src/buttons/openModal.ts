@@ -1,6 +1,6 @@
 import { ButtonInteraction, TextInputStyle } from 'discord.js'
-import Button from '../templates/button.js'
-import { createCustomModal, createTextInput } from '../utils/modalBuilder.js'
+import Button from '../templates/button.ts'
+import { createCustomModal, createTextInput } from '../utils/modalBuilder.ts'
 
 export default new Button({
     customId: 'openModal',

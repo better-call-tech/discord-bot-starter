@@ -1,9 +1,12 @@
 import { Client, GatewayIntentBits } from 'discord.js'
-import { config } from './config.js'
+import { config } from './config.ts'
 import { readdirSync } from 'fs'
-import path, { dirname, join } from 'path'
-import type Event from './templates/event.js'
+import { dirname, join } from 'path'
+import type Event from './templates/event.ts'
 import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 export const client = new Client({
     intents: [
@@ -13,10 +16,7 @@ export const client = new Client({
     ]
 })
 
-const loadEvents = async () => {
-    const __filename = fileURLToPath(import.meta.url)
-    const __dirname = dirname(__filename)
-
+async function loadEvents() {
     const eventsPath = join(__dirname, './events')
 
     console.log(`Looking for event files in: ${eventsPath}`)

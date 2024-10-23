@@ -1,5 +1,5 @@
 import { ModalSubmitInteraction } from 'discord.js'
-import Modal from '../templates/modal.js'
+import Modal from '../templates/modal.ts'
 
 export default new Modal({
     customId: 'exampleModal',

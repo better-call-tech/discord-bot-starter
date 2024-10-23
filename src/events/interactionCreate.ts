@@ -5,13 +5,13 @@ import {
     Interaction,
     ModalSubmitInteraction
 } from 'discord.js'
-import Event from '../templates/event.js'
-import { commands } from '../commands/index.js'
-import { buttons } from '../buttons/index.js'
-import { modals } from '../modals/index.js'
-import { selectMenus } from '../selectMenus/index.js'
-import { isSelectMenuInteraction } from '../utils/selectMenuUtils.js'
-import { SelectMenuInteractionType } from '../templates/selectMenu.js'
+import Event from '../templates/event.ts'
+import { commands } from '../commands/index.ts'
+import { buttons } from '../buttons/index.ts'
+import { modals } from '../modals/index.ts'
+import { selectMenus } from '../selectMenus/index.ts'
+import { isSelectMenuInteraction } from '../utils/selectMenuUtils.ts'
+import { SelectMenuInteractionType } from '../templates/selectMenu.ts'
 
 export default new Event({
     name: Events.InteractionCreate,

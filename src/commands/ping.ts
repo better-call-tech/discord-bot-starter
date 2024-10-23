@@ -3,9 +3,9 @@ import {
     SlashCommandBuilder,
     ButtonStyle
 } from 'discord.js'
-import Command from '../templates/command.js'
-import { createButton } from '../utils/buttonBuilder.js'
-import { createActionRows } from '../utils/actionRowBuilder.js'
+import Command from '../templates/command.ts'
+import { createButton } from '../utils/buttonBuilder.ts'
+import { createActionRows } from '../utils/actionRowBuilder.ts'
 
 export default new Command({
     data: new SlashCommandBuilder()

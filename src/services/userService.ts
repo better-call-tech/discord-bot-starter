@@ -1,4 +1,4 @@
-import { prisma } from '../prisma/prismaClient.js'
+import { prisma } from '../prisma/prismaClient.ts'
 
 export const findUserByDiscordId = async (discordId: string) => {
     return prisma.user.findUnique({
