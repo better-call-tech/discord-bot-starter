@@ -3,29 +3,27 @@ version: '3.8'
 services:
   postgres:
     image: postgres:13
-    container_name: postgres
+    container_name: postgres-yahooo
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - '5439:5432'
+      - '5430:5432'
+    restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   app:
     build: .
-    container_name: discord_bot
+    container_name: discord_bot-yahooo
     environment:
       DISCORD_TOKEN: ${DISCORD_TOKEN}
       DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
       DATABASE_URL: ${DATABASE_URL}
     depends_on:
       - postgres
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/usr/src/app
+    restart: always
 
 volumes:
   postgres_data:
