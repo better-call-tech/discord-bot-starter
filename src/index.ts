@@ -1,8 +1,8 @@
 import { Client, GatewayIntentBits } from 'discord.js'
-import { config } from './config.ts'
+import { config } from './config.js'
 import { readdirSync } from 'fs'
 import { dirname, join } from 'path'
-import type Event from './templates/event.ts'
+import type Event from './templates/event.js'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -15,6 +15,41 @@ export const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 })
+
+process.on('unhandledRejection', (error) => {
+    console.error('Unhandled Rejection:', error);
+    process.exit(1);
+});
+
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+    process.exit(1);
+});
+
+process.on('SIGTERM', () => {
+    console.log('SIGTERM received. Performing graceful shutdown...');
+    client.destroy();
+    process.exit(0);
+});
+
+process.on('SIGINT', () => {
+    console.log('Received SIGINT. Performing cleanup...');
+    process.exit(0);
+});
+
+// Discord client error handlers
+client.on('error', (error) => {
+    console.error('Discord client error:', error);
+    process.exit(1);
+});
+
+// Connection check interval
+setInterval(() => {
+    if (!client.isReady()) {
+        console.error('Client disconnected, restarting...');
+        process.exit(1);
+    }
+}, 60000);
 
 async function loadEvents() {
     const eventsPath = join(__dirname, './events')

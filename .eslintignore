@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+ecosystem.config.js
+ecosystem.config.cjs
+ecosystem.config.ts
+dist
+node_modules

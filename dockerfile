@@ -1,19 +1,19 @@
-FROM node:18-slim
+FROM node:18
 
-RUN apt-get update && apt-get install -y openssl
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
-
 RUN npm install
+RUN npm install -g pm2
+
 
 COPY . .
 
-COPY entrypoint.sh /usr/src/app/entrypoint.sh
+RUN npx prisma generate
 
-RUN chmod +x /usr/src/app/entrypoint.sh
 
-EXPOSE 3000
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
