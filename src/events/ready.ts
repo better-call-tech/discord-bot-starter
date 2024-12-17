@@ -48,6 +48,14 @@ export default new Event({
                 )
             }
         }
+
+        setInterval(() => {
+            client.guilds.cache.forEach(guild => {
+                guild.members.fetch()
+                    .catch(err => console.error(`Error refreshing member cache for ${guild.name}:`, err))
+            })
+        }, 3600000)
     }
 })
+
 

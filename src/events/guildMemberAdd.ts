@@ -4,7 +4,7 @@ import { createUser, findUserByDiscordId } from '../services/userService.ts'
 
 export default new Event({
     name: Events.GuildMemberAdd,
-    once: true,
+    once: false,
     async execute(member: GuildMember) {
         const discordId = member.id
         const username = member.user.username

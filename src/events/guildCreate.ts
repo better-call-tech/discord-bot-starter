@@ -4,7 +4,7 @@ import { deployCommands } from '../deploy-commands.ts'
 
 export default new Event({
     name: Events.GuildCreate,
-    once: true,
+    once: false,
     execute: async (guild: Guild) => {
         console.log(`Bot added to a new guild: ${guild.id}`)
         await deployCommands({ guildId: guild.id })
